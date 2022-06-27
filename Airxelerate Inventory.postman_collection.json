@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "82738ce5-304c-48c6-8f14-bb469b6a9aba",
+		"name": "Airxelerate Inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication and get JWT (User role)",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"user\",\"password\":\"user\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authentication and get JWT (Admin role)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"admin\",\"password\":\"admin\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all flights",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIGRldGFpbHMiLCJleHAiOjE2NTYyNzI5NjcsImlhdCI6MTY1NjI2OTM2NywidXNlcm5hbWUiOiJ1c2VyIn0._CH3D6ZE3eEcYUyW2RFUk6BQ8sR9cfY922lS6Cc1CkA",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/flight",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new flight",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIGRldGFpbHMiLCJleHAiOjE2NTYyNzI5ODMsImlhdCI6MTY1NjI2OTM4MywidXNlcm5hbWUiOiJhZG1pbiJ9.-d63EPaXFL7YlCSUHWCNzJKjNuNKie9EPSb-zjBcyVw",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carrierCode\": \"AC\",\r\n    \"flightNumber\": \"1010\",\r\n    \"flightDate\": \"2022-06-27\",\r\n    \"originAirportCode\": \"USA\",\r\n    \"destinationAirportCode\": \"ABI\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/flight",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get flight by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIGRldGFpbHMiLCJleHAiOjE2NTYyNzI5NjcsImlhdCI6MTY1NjI2OTM2NywidXNlcm5hbWUiOiJ1c2VyIn0._CH3D6ZE3eEcYUyW2RFUk6BQ8sR9cfY922lS6Cc1CkA",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/flight/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete flight by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VyIGRldGFpbHMiLCJleHAiOjE2NTYyNzI5ODMsImlhdCI6MTY1NjI2OTM4MywidXNlcm5hbWUiOiJhZG1pbiJ9.-d63EPaXFL7YlCSUHWCNzJKjNuNKie9EPSb-zjBcyVw",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/flight/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"flight",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
